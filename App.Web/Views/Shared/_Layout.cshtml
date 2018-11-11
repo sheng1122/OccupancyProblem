@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Transylvania Hotel - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/IonIcon/css/ionicons.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/animate/3.6.0/css/animate.css" />
+    <link rel="stylesheet" href="~/lib/sweetalert/2.0/css/sweetalert.css" />
+    <link rel="stylesheet" href="~/lib/toastr/2.1.4/css/toastr.css" />
+    <link rel="stylesheet" href="~/lib/dataTables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    @if (IsSectionDefined("styles"))
+    {@RenderSection("styles", required: false)}
+    <link rel="stylesheet" href="~/lib/admin-lte/2.4.3/css/AdminLTE.css" />
+    <link rel="stylesheet" href="~/lib/admin-lte/2.4.3/css/skins/_all-skins.css" />
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/custom-theme.css" />
+        <link rel="stylesheet" href="~/css/color.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/custom-theme.min.css" />
+        <link rel="stylesheet" href="~/css/color.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @if (IsSectionDefined("pagestyles"))
+    {@RenderSection("pagestyles", required: false)}
+    @Html.Partial("_Header")
+</head>
+<body class="hold-transition skin-blue layout-top-nav">
+    <div id="divLoader" style="display:none"> <img id="loaderImg" src="~/images/ajax-loader.gif" alt="Loader" /> </div>
+    <div id="wrapper">
+        @Html.Partial("_TopNavbar")
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        @Html.Partial("_Footer")
+    </div>
+    <div class="loader loader-overlay">
+        <div class="loader-bg">
+            <div class="sk-spinner sk-spinner-chasing-dots">
+                <div class="sk-dot1"></div>
+                <div class="sk-dot2"></div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/3.1.1/jquery.js"></script>
+    <script src="~/lib/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/lib/admin-lte/2.4.3/js/adminlte.min.js"></script>
+    <script src="~/lib/slimscroll/1.3.6/js/jquery.slimscroll.min.js"></script>
+    <script src="~/lib/metisMenu/2.0.2/js/metisMenu.min.js"></script>
+    <script src="~/lib/pace/1.0.2/js/pace.min.js"></script>
+    <script src="~/lib/sweetalert/2.0/js/sweetalert.min.js"></script>
+    @Html.Partial("_SessionControl")
+    <script src="~/lib/qrCode/qrcode.min.js"></script>
+    <environment include="Development">
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/site.es5.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

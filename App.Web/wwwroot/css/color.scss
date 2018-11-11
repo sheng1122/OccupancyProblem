@@ -1,0 +1,86 @@
+﻿$primaryColor: #1c84c6;
+$tableRowHighlight: #f2fbff;
+$bg: #efefef;
+$border: #d2d6de;
+
+.sk-spinner-chasing-dots .sk-dot1, .sk-spinner-chasing-dots .sk-dot2 {
+    background-color: $primaryColor;
+}
+
+
+.top-navigation .navbar-brand {
+    background: $primaryColor;
+}
+
+
+.top-navigation .nav > li a:hover,
+.top-navigation .nav > li a:focus {
+    color: $primaryColor;
+}
+
+
+.form-control:focus, .single-line:focus {
+    border-color: $primaryColor;
+}
+
+
+.pace .pace-progress {
+    background: $primaryColor;
+}
+
+/* data table */
+.dataTable tbody tr.selected {
+    background-color: $tableRowHighlight;
+}
+
+/* drop zone */
+.dropzone .dz-preview .dz-image {
+    background-color: $bg;
+}
+
+.dropzone {
+    border: 1px solid $border;
+}
+
+/*custom*/
+
+.dropdown-menu {
+    background: #282828;
+    border: none;
+    color:white;
+}
+
+.dropdown-menu > li > a {
+    color: white;
+}
+
+.content-wrapper {
+    background-color: whitesmoke;
+}
+
+.main-header .navbar {
+    background-color: #282828 !important;
+}
+
+.main-footer {
+    background: #282828;
+    color: white;
+    border-top: 1px solid #282828;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-body a {
+    color: white!important;
+    background: #282828;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-body {
+    border-color: #282828;
+}
+
+
+@media (max-width: 991px) {
+    .navbar-nav > .user-menu > .dropdown-menu > .user-body a {
+        background: #282828 !important;
+        color: white !important;
+    }
+}

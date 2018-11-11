@@ -1,0 +1,91 @@
+﻿@model HomeViewModel
+@using App.Web.Models.Home
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .content {
+        max-width: 640px;
+    }
+
+    #btn-submit {
+        width: 100%;
+    }
+</style>
+
+<div class="content">
+    <div class="box">
+        <div class="box-body">
+            <h3>How many room would you need?</h3>
+            <br />
+            <form asp-action="CheckOccupancy" role="form" method="post" id="formOccupancy">
+                <div class="row">
+                    <div class="text-danger validation-summary"><ul></ul></div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label asp-for="AdultCount" class="control-label"></label>
+                            <input asp-for="AdultCount" id="input-adult" class="form-control" required />
+                            <span asp-validation-for="AdultCount" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label asp-for="ChildrenCount" class="control-label"></label>
+                            <input asp-for="ChildrenCount" id="input-children" class="form-control" min="0" required />
+                            <span asp-validation-for="ChildrenCount" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label asp-for="InfantCount" class="control-label"></label>
+                            <input asp-for="InfantCount" id="input-infant" class="form-control" min="0" required />
+                            <span asp-validation-for="InfantCount" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button class="btn btn-success" id="btn-submit" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <span id="span-result"></span>
+                    </div>
+                </div>
+                <br />
+                <br />
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <environment include="Development">
+        <script src="~/js/home/home.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/home/home.es5.min.js" asp-append-version="true"></script>
+    </environment>
+    <script type="text/javascript">
+        var pageHome = new PageHome({
+            _minimumAdultRequiredPerRoom : @Model.MinimumAdultRequiredPerRoom.ToString(),
+            _maximumNumberOfAdultAndChildren : @Model.MaximumNumberOfAdultAndChildren.ToString(),
+            _maximumNumberOfRoomPerBooking : @Model.MaximumNumberOfRoomPerBooking,
+            _maximumNumberOfAdultPerRoom : @Model.MaximumNumberOfAdultPerRoom,
+            _maximumNumberOfChildrenPerRoom : @Model.MaximumNumberOfChildrenPerRoom,
+            _maximumNumberOfInfantPerRoom : @Model.MaximumNumberOfInfantPerRoom,
+            adultCount : @Model.AdultCount,
+            childrenCount : @Model.ChildrenCount,
+            infantCount : @Model.InfantCount
+        });
+    </script>
+}

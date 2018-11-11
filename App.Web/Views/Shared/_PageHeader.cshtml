@@ -1,0 +1,12 @@
+﻿@model App.Web.Models.PageHeader
+<div class="content-header">
+    <h1>
+        @Model.Heading
+    </h1>
+    <ol class="breadcrumb" hidden>
+        @foreach(Link link in Model.Breadcrumb)
+        {
+            <li class="@link.StatusClass"><a href="@link.Url"><i class="fa @link.Icon"></i> @link.Text</a></li>
+        }
+    </ol>
+</div>
